@@ -24,6 +24,20 @@ async function firstConnection(){
         await page.waitFor(2000)
         await page.click('#loginForm > div > div:nth-child(3) > button')
 
+        return page
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+
+async function passConfirmLocation(page){
+    
+    try {
+        await page.waitFor(10000)
+        await page.click('#react-root > section > main > div > div > div > div > button')
+
+        return page
 
     }
     catch(error){
@@ -32,7 +46,10 @@ async function firstConnection(){
 }
 
 async function run(){
-    await firstConnection()
+    const page = await firstConnection()
+    await passConfirmLocation(page)
+
+
 }
 
 
